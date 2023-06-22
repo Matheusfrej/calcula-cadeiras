@@ -31,5 +31,11 @@ export const HeaderContent = styled.main`
     padding: 0 1.25rem;
     border-radius: 6px;
     cursor: pointer;
+
+    &:hover {
+      background: ${(props) => props.theme['blue-700']};
+      color: ${(props) => props.theme['gray-100']};
+      transition: background-color 0.2s, color 0.2s;
+    }
   }
 `

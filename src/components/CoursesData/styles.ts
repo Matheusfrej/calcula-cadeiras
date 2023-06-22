@@ -1,13 +1,15 @@
 import { styled } from 'styled-components'
 
 export const CoursesDataContainer = styled.section`
-  padding: 0 5rem;
   > div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+    margin: 2rem auto 0;
+    padding: 0 1.5rem;
+    max-width: 1120px;
   }
 `
 
@@ -28,7 +30,7 @@ export const CoursesDataCard = styled.div<CoursesDataCardProps>`
   }
 
   strong {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: ${(props) => {
       switch (props.variant) {
         case 'accomplished':
