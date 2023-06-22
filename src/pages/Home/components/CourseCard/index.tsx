@@ -1,4 +1,5 @@
 import { PencilSimple, Trash, LockSimple, GraduationCap } from 'phosphor-react'
+import { Tooltip } from 'react-tooltip'
 import * as S from './styles'
 
 interface CourseCardProps {
@@ -23,8 +24,18 @@ export function CourseCard({
           {code} - {name}
         </strong>
         <div>
-          <PencilSimple size={24} weight="bold" />
-          <Trash size={24} weight="bold" />
+          <PencilSimple
+            size={24}
+            weight="bold"
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Editar"
+          />
+          <Trash
+            size={24}
+            weight="bold"
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Apagar"
+          />
         </div>
       </S.CardHeader>
       <h3>Professor: {professor}</h3>
@@ -43,6 +54,7 @@ export function CourseCard({
           </div>
         )}
       </S.CardFooter>
+      <Tooltip id="my-tooltip" />
     </S.CourseCardContainer>
   )
 }
