@@ -33,7 +33,7 @@ export function CourseCard({
         <strong>{workload}h</strong>
         {mandatory ? (
           <div>
-            <span>Obrigatório</span>
+            <span>Obrigatória</span>
             <LockSimple size={20} weight="bold" />
           </div>
         ) : (
