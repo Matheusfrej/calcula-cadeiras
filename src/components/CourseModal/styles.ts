@@ -31,6 +31,11 @@ export const CloseButton = styled(Dialog.Close)`
 
 export const Content = styled(Dialog.Content)`
   min-width: 32rem;
+  @media (max-width: 700px) {
+    min-width: 15rem;
+    height: 70%;
+    grid-template-columns: 1fr;
+  }
   border-radius: 6px;
   padding: 2.5rem 3rem;
   background: ${(props) => props.theme['gray-800']};
@@ -55,6 +60,9 @@ export const Content = styled(Dialog.Content)`
       background: ${(props) => props.theme['gray-900']};
       color: ${(props) => props.theme['gray-300']};
       padding: 1rem;
+      @media (max-width: 700px) {
+        padding: 0.5rem;
+      }
 
       &::placeholder {
         color: ${(props) => props.theme['gray-500']};
@@ -70,6 +78,11 @@ export const Content = styled(Dialog.Content)`
       padding: 0 1.25rem;
       border-radius: 6px;
       margin-top: 1.5rem;
+      @media (max-width: 700px) {
+        margin-top: 0;
+        height: initial;
+        padding: 0.5rem;
+      }
       cursor: pointer;
 
       &:disabled {
@@ -88,6 +101,9 @@ export const Content = styled(Dialog.Content)`
 export const CourseType = styled(RadioGroup.Root)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
   gap: 1rem;
   margin-top: 0.5rem;
 `
@@ -99,6 +115,9 @@ export const CourseTypeButton = styled(RadioGroup.Item)`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  @media (max-width: 700px) {
+    padding: 0.5rem;
+  }
   border-radius: 6px;
   cursor: pointer;
   border: 0;

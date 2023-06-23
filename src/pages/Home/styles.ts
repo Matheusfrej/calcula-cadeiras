@@ -18,6 +18,9 @@ export const CourseCardsContainer = styled.div`
   margin: 2rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
   gap: 1.5rem;
   align-items: center;
 `

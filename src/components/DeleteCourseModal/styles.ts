@@ -3,6 +3,9 @@ import * as Dialog from '@radix-ui/react-dialog'
 
 export const Content = styled(Dialog.Content)`
   min-width: 32rem;
+  @media (max-width: 700px) {
+    min-width: fit-content;
+  }
   border-radius: 6px;
   padding: 3rem 3rem;
   display: flex;

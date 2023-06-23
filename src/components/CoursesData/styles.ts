@@ -14,6 +14,9 @@ export const CoursesDataContainer = styled.section`
 export const CoursesDataCards = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
