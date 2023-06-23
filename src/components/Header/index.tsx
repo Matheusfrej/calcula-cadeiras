@@ -6,7 +6,7 @@ import { CourseModal } from '../CourseModal'
 export function Header() {
   const [isCourseModalOpen, setIsCourseModalOpen] = useState<boolean>(false)
 
-  function handleTransactionModalOpenChange(value: boolean) {
+  function handleCourseModalOpenChange(value: boolean) {
     setIsCourseModalOpen(value)
   }
 
@@ -18,13 +18,13 @@ export function Header() {
         </h2>
         <Dialog.Root
           open={isCourseModalOpen}
-          onOpenChange={handleTransactionModalOpenChange}
+          onOpenChange={handleCourseModalOpenChange}
         >
           <Dialog.Trigger asChild>
             <button>Adicionar Cadeira</button>
           </Dialog.Trigger>
 
-          <CourseModal />
+          <CourseModal purpose="add" />
         </Dialog.Root>
       </S.HeaderContent>
     </S.HeaderContainer>

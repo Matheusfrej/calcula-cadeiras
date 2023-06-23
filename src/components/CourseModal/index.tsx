@@ -2,12 +2,17 @@ import * as Dialog from '@radix-ui/react-dialog'
 import * as S from './styles'
 import { GraduationCap, LockSimple, X } from 'phosphor-react'
 
-export function CourseModal() {
+interface CourseModalProps {
+  purpose: 'add' | 'edit'
+}
+
+export function CourseModal({ purpose }: CourseModalProps) {
   return (
     <Dialog.Portal>
       <S.Overlay />
       <S.Content>
-        <Dialog.Title>Nova cadeira</Dialog.Title>
+        {purpose === 'add' && <Dialog.Title>Nova cadeira</Dialog.Title>}
+        {purpose === 'edit' && <Dialog.Title>Editar cadeira</Dialog.Title>}
         <S.CloseButton>
           <X size={24} />
         </S.CloseButton>
@@ -28,7 +33,8 @@ export function CourseModal() {
             </S.CourseTypeButton>
           </S.CourseType>
 
-          <button type="submit">Cadastrar</button>
+          {purpose === 'add' && <button type="submit">Cadastrar</button>}
+          {purpose === 'edit' && <button type="submit">Concluir</button>}
         </form>
       </S.Content>
     </Dialog.Portal>
