@@ -31,7 +31,7 @@ interface CoursesContextType {
   graduation: GraduationData | undefined
   wasCourseModalOpened: boolean
   deleteCourse: (id: number) => Promise<void>
-  getCourses: () => Promise<void>
+  getCourses: (query: string) => Promise<void>
   onCourseModalOpen: (value: boolean) => void
 }
 
@@ -49,8 +49,12 @@ export function CoursesContextProvider({
   const [wasCourseModalOpened, setWasCourseModalOpened] =
     useState<boolean>(false)
 
-  const getCourses = async () => {
-    const response = await api.get('/courses')
+  const getCourses = async (query?: string) => {
+    const response = await api.get('/courses', {
+      params: {
+        q: query,
+      },
+    })
     setCourses(response.data)
   }
 
