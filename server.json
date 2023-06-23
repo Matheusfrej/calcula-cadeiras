@@ -9,36 +9,244 @@
       "id": 6
     },
     {
-      "code": "IF718",
-      "name": "Analise e Projetos de Sistemas",
-      "professor": "Augusto Sampaio",
-      "type": "Eletiva",
+      "code": "MA531",
+      "name": "AVLC",
+      "professor": "Silvio Melo",
+      "type": "Obrigatória",
       "workload": 75,
       "id": 7
     },
     {
-      "code": "IF547",
-      "name": "nome teste",
-      "professor": "faosdijfdoi",
-      "type": "Eletiva",
-      "workload": 432,
+      "code": "MA026",
+      "name": "Calculo I",
+      "professor": "Hanna Nóbrega",
+      "type": "Obrigatória",
+      "workload": 60,
       "id": 8
     },
     {
-      "code": "IF5473",
-      "name": "adfsdfssfd",
-      "professor": "afdsfdsf",
+      "code": "IF668",
+      "name": "Introdução à Computação",
+      "professor": "Adriano Lorena",
       "type": "Obrigatória",
-      "workload": 4321,
+      "workload": 45,
+      "id": 9
+    },
+    {
+      "code": "IF670",
+      "name": "Matemática Discreta",
+      "professor": "Nivan Ferreira",
+      "type": "Obrigatória",
+      "workload": 75,
       "id": 10
     },
     {
-      "code": "IF333",
-      "name": "fadsafdfd",
-      "professor": "afdsdssd",
+      "code": "IF672",
+      "name": "Algoritmos",
+      "professor": "Gustavo Carvalho",
       "type": "Obrigatória",
-      "workload": 543,
+      "workload": 75,
       "id": 11
+    },
+    {
+      "code": "ET586",
+      "name": "Estatística",
+      "professor": "Renata Cardoso",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 12
+    },
+    {
+      "code": "FI582",
+      "name": "Física para Computação",
+      "professor": "Carlos Eliecer",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 13
+    },
+    {
+      "code": "IF675",
+      "name": "Sistemas Digitais",
+      "professor": "Stefan Blawid",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 14
+    },
+    {
+      "code": "IF673",
+      "name": "Lógica para Computação",
+      "professor": "Anjolina Grisi",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 15
+    },
+    {
+      "code": "IF679",
+      "name": "Informática e Sociedade",
+      "professor": "Carina Alves",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 16
+    },
+    {
+      "code": "IF677",
+      "name": "Infraestrutura de Software",
+      "professor": "Carlos Ferraz",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 17
+    },
+    {
+      "code": "IF674",
+      "name": "Infraestrutura de Hardware",
+      "professor": "Adriano Sarmento",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 18
+    },
+    {
+      "code": "IF678",
+      "name": "Infraestrutura de Comunicação",
+      "professor": "Paulo André",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 19
+    },
+    {
+      "code": "LE530",
+      "name": "Inglês para Computação",
+      "professor": "Rafael Nonato",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 20
+    },
+    {
+      "code": "IF682",
+      "name": "Engenharia de Software",
+      "professor": "Marcelo Damorim",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 21
+    },
+    {
+      "code": "IF685",
+      "name": "GDI",
+      "professor": "Valéria Times",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 22
+    },
+    {
+      "code": "IF689",
+      "name": "Informática Teórica",
+      "professor": "Paguso",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 23
+    },
+    {
+      "code": "IF681",
+      "name": "Interfaces Usuário-Máquina",
+      "professor": "Alex Sandro",
+      "type": "Obrigatória",
+      "workload": 45,
+      "id": 24
+    },
+    {
+      "code": "IF680",
+      "name": "Processamento Gráfico",
+      "professor": "Silvio Melo",
+      "type": "Obrigatória",
+      "workload": 45,
+      "id": 25
+    },
+    {
+      "code": "IF684",
+      "name": "Sistemas Inteligentes",
+      "professor": "Adriano Lorena",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 26
+    },
+    {
+      "code": "IF690",
+      "name": "História e Futuro da Computação",
+      "professor": "Germano Vasconcelos",
+      "type": "Obrigatória",
+      "workload": 45,
+      "id": 27
+    },
+    {
+      "code": "IF687",
+      "name": "Introdução à Multimídia",
+      "professor": "Giordano Cabral",
+      "type": "Obrigatória",
+      "workload": 45,
+      "id": 28
+    },
+    {
+      "code": "IF676",
+      "name": "Metodol",
+      "professor": "Nicolas Melo",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 29
+    },
+    {
+      "code": "IF686",
+      "name": "Paradigmas de Linguagens Computacionais",
+      "professor": "Marcio Lopes",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 30
+    },
+    {
+      "code": "IF683",
+      "name": "Projetão",
+      "professor": "Geber Ramalho",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 31
+    },
+    {
+      "code": "IF688",
+      "name": "Compiladores",
+      "professor": "Henrique Rebelo",
+      "type": "Obrigatória",
+      "workload": 75,
+      "id": 32
+    },
+    {
+      "code": "IF718",
+      "name": "Análise de Projetos e Sistemas",
+      "professor": "Augusto Sampaio",
+      "type": "Eletiva",
+      "workload": 75,
+      "id": 33
+    },
+    {
+      "code": "IF711",
+      "name": "Prog. Concorrente Distribuída",
+      "professor": "Nelson Souto",
+      "type": "Eletiva",
+      "workload": 75,
+      "id": 34
+    },
+    {
+      "code": "IF714",
+      "name": "Sistemas de Informação",
+      "professor": "Maira Araujo",
+      "type": "Eletiva",
+      "workload": 75,
+      "id": 35
+    },
+    {
+      "code": "IF775",
+      "name": "Tópicos Avançados em Algoritmos",
+      "professor": "Fernando Maciano",
+      "type": "Eletiva",
+      "workload": 75,
+      "id": 36
     }
   ],
   "graduation": {
