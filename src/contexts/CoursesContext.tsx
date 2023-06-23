@@ -26,6 +26,14 @@ interface GraduationData {
   }
 }
 
+interface CreateCourseInput {
+  code: string
+  name: string
+  professor: string
+  type: 'Obrigatória' | 'Eletiva'
+  workload: number
+}
+
 interface CoursesContextType {
   courses: CourseType[]
   graduation: GraduationData | undefined
@@ -34,6 +42,8 @@ interface CoursesContextType {
   getCourses: (query: string) => Promise<void>
   onCourseModalOpen: (value: boolean) => void
   showToast: (message: string, didSuccess: boolean) => void
+  createCourse: (data: CreateCourseInput) => void
+  editCourse: (data: CreateCourseInput, courseId: number) => void
 }
 
 export const CoursesContext = createContext({} as CoursesContextType)
@@ -62,6 +72,52 @@ export function CoursesContextProvider({
   useEffect(() => {
     getCourses()
   }, [])
+
+  const createCourse = async (data: CreateCourseInput) => {
+    const { code, name, professor, type, workload } = data
+
+    try {
+      const response = await api.post('/courses', {
+        code,
+        name,
+        professor,
+        type,
+        workload,
+      })
+
+      setCourses((state) => {
+        return [...state, response.data]
+      })
+      showToast('Cadeira adicionada com sucesso!', true)
+    } catch (error) {
+      showToast('Houve um erro ao adicionar uma cadeira', false)
+    }
+  }
+
+  const editCourse = async (data: CreateCourseInput, courseId: number) => {
+    const { code, name, professor, type, workload } = data
+    try {
+      const response = await api.put(`/courses/${courseId}`, {
+        code,
+        name,
+        professor,
+        type,
+        workload,
+      })
+
+      setCourses((state) => {
+        return state.map((course) => {
+          if (course.id === courseId) {
+            return response.data
+          }
+          return course
+        })
+      })
+      showToast('Cadeira editada com sucesso!', true)
+    } catch (error) {
+      showToast('Houve um erro ao editar a cadeira', false)
+    }
+  }
 
   const getGraduation = async () => {
     const response = await api.get('/graduation')
@@ -124,6 +180,8 @@ export function CoursesContextProvider({
         getCourses,
         onCourseModalOpen,
         showToast,
+        createCourse,
+        editCourse,
       }}
     >
       {children}

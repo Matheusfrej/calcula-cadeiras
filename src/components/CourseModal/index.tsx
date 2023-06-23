@@ -24,9 +24,9 @@ interface CourseModalProps {
 }
 
 export function CourseModal({ purpose, courseId }: CourseModalProps) {
-  const { wasCourseModalOpened, showToast } = useCourses()
+  const { wasCourseModalOpened, createCourse, editCourse } = useCourses()
 
-  const { control, register, handleSubmit, setValue } =
+  const { control, register, handleSubmit, setValue, reset } =
     useForm<CourseFormInputs>({
       resolver: zodResolver(courseFormSchema),
     })
@@ -34,34 +34,12 @@ export function CourseModal({ purpose, courseId }: CourseModalProps) {
   const [course, setCourse] = useState<CourseType | undefined>()
 
   const handleCourseSubmit = async (data: CourseFormInputs) => {
-    const { code, name, professor, type, workload } = data
-
     if (purpose === 'add') {
-      try {
-        await api.post('/courses', {
-          code,
-          name,
-          professor,
-          type,
-          workload,
-        })
-        showToast('Cadeira adicionada com sucesso!', true)
-      } catch (error) {
-        showToast('Houve um erro ao adicionar uma cadeira', false)
-      }
+      await createCourse(data)
+      reset()
     } else if (purpose === 'edit') {
-      try {
-        await api.put(`/courses/${courseId}`, {
-          code,
-          name,
-          professor,
-          type,
-          workload,
-        })
-        showToast('Cadeira editada com sucesso!', true)
-      } catch (error) {
-        showToast('Houve um erro ao editar a cadeira', false)
-      }
+      await editCourse(data, courseId!)
+      reset()
     }
   }
 

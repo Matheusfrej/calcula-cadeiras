@@ -1,20 +1,44 @@
 {
   "courses": [
     {
-      "id": 6,
       "code": "IF669",
       "name": "Introdução à Programação",
       "professor": "Filipe Calegario",
       "type": "Obrigatória",
-      "workload": 120
+      "workload": 120,
+      "id": 6
     },
     {
       "code": "IF718",
       "name": "Analise e Projetos de Sistemas",
       "professor": "Augusto Sampaio",
       "type": "Eletiva",
-      "workload": 90,
+      "workload": 75,
       "id": 7
+    },
+    {
+      "code": "IF547",
+      "name": "nome teste",
+      "professor": "faosdijfdoi",
+      "type": "Eletiva",
+      "workload": 432,
+      "id": 8
+    },
+    {
+      "code": "IF5473",
+      "name": "adfsdfssfd",
+      "professor": "afdsfdsf",
+      "type": "Obrigatória",
+      "workload": 4321,
+      "id": 10
+    },
+    {
+      "code": "IF333",
+      "name": "fadsafdfd",
+      "professor": "afdsdssd",
+      "type": "Obrigatória",
+      "workload": 543,
+      "id": 11
     }
   ],
   "graduation": {

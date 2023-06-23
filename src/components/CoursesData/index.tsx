@@ -41,7 +41,7 @@ export function CoursesData() {
             </strong>
           </S.CoursesDataCard>
           <S.CoursesDataCard>
-            <span>Obrigatória total</span>
+            <span>Obrigatória total do curso</span>
             <strong>
               {graduation !== undefined && graduation.workload.mandatory}
               {graduation === undefined && 0}h
@@ -60,7 +60,7 @@ export function CoursesData() {
             </strong>
           </S.CoursesDataCard>
           <S.CoursesDataCard>
-            <span>Eletiva total</span>
+            <span>Eletiva total do curso</span>
             <strong>
               {graduation !== undefined && graduation.workload.elective}
               {graduation === undefined && 0}h
