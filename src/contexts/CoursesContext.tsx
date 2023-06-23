@@ -6,6 +6,7 @@ import {
   useEffect,
 } from 'react'
 import { api } from '../lib/axios'
+import { toast } from 'react-toastify'
 
 interface CourseType {
   id: number
@@ -62,11 +63,42 @@ export function CoursesContextProvider({
     getGraduation()
   }, [])
 
+  const showToast = (message: string, didSuccess: boolean) => {
+    if (didSuccess) {
+      toast.success(message, {
+        position: 'bottom-right',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      })
+    } else {
+      toast.error(message, {
+        position: 'bottom-right',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      })
+    }
+  }
+
   const deleteCourse = async (id: number) => {
-    await api.delete(`/courses/${id}`)
-    setCourses((state) => {
-      return state.filter((course) => course.id !== id)
-    })
+    try {
+      await api.delete(`/courses/${id}`)
+      setCourses((state) => {
+        return state.filter((course) => course.id !== id)
+      })
+      showToast('Curso apagado com sucesso!', true)
+    } catch (error) {
+      showToast('Houve um erro ao apagar o curso', false)
+    }
   }
 
   return (

@@ -1,5 +1,22 @@
 {
-  "courses": [],
+  "courses": [
+    {
+      "id": 4,
+      "code": "IF669",
+      "name": "Introdução à Programação",
+      "professor": "Filipe Calegario",
+      "type": "Obrigatória",
+      "workload": 120
+    },
+    {
+      "id": 6,
+      "code": "IF669",
+      "name": "Introdução à Programação",
+      "professor": "Filipe Calegario",
+      "type": "Obrigatória",
+      "workload": 120
+    }
+  ],
   "graduation": {
     "name": "Ciência da Computação",
     "workload": {
