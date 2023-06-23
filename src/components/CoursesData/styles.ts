@@ -2,15 +2,22 @@ import { styled } from 'styled-components'
 
 export const CoursesDataContainer = styled.section`
   > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
     margin: 2rem auto 0;
     padding: 0 1.5rem;
     max-width: 1120px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
+`
+
+export const CoursesDataCards = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1120px;
 `
 
 interface CoursesDataCardProps {

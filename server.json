@@ -1,0 +1,52 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "code": "IF669",
+      "name": "Introdução à Programação",
+      "professor": "Filipe Calegario",
+      "type": "Obrigatória",
+      "workload": 120
+    },
+    {
+      "id": 2,
+      "code": "IF670",
+      "name": "Matemática Discreta",
+      "professor": "Nivan Ferreira",
+      "type": "Obrigatória",
+      "workload": 75
+    },
+    {
+      "id": 3,
+      "code": "IF668",
+      "name": "Introdução à Computação",
+      "professor": "Adriano Lorena",
+      "type": "Obrigatória",
+      "workload": 45
+    },
+    {
+      "id": 4,
+      "code": "MA026",
+      "name": "Cálculo I",
+      "professor": "Hanna Nóbrega",
+      "type": "Obrigatória",
+      "workload": 60
+    },
+    {
+      "id": 5,
+      "code": "MA531",
+      "name": "AVLC",
+      "professor": "Silvio Melo",
+      "type": "Obrigatória",
+      "workload": 75
+    }
+  ],
+  "graduation": {
+    "name": "Ciência da Computação",
+    "workload": {
+      "total": 3495,
+      "mandatory": 2355,
+      "elective": 1140
+    }
+  }
+}
