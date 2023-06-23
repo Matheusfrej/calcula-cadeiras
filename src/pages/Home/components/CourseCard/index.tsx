@@ -5,6 +5,7 @@ import { useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { CourseModal } from '../../../../components/CourseModal'
 import { DeleteCourseModal } from '../../../../components/DeleteCourseModal'
+import { useCourses } from '../../../../contexts/CoursesContext'
 
 interface CourseCardProps {
   id: number
@@ -23,10 +24,12 @@ export function CourseCard({
   professor,
   workload,
 }: CourseCardProps) {
+  const { onCourseModalOpen } = useCourses()
   const [isCourseModalOpen, setIsCourseModalOpen] = useState<boolean>(false)
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState<boolean>(false)
 
   function handleCourseModalOpenChange(value: boolean) {
+    onCourseModalOpen(value)
     setIsCourseModalOpen(value)
   }
 
@@ -53,7 +56,7 @@ export function CourseCard({
                 data-tooltip-content="Editar"
               />
             </Dialog.Trigger>
-            <CourseModal purpose="edit" />
+            <CourseModal purpose="edit" courseId={id} />
           </Dialog.Root>
           <Dialog.Root
             open={isDeleteModalOpen}

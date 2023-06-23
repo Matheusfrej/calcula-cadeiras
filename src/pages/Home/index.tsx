@@ -4,7 +4,6 @@ import { useCourses } from '../../contexts/CoursesContext'
 import { CourseCard } from './components/CourseCard'
 import { SearchForm } from './components/SearchForm'
 import * as S from './styles'
-import { ToastContainer } from 'react-toastify'
 
 export function Home() {
   const { courses } = useCourses()

@@ -8,7 +8,7 @@ import {
 import { api } from '../lib/axios'
 import { toast } from 'react-toastify'
 
-interface CourseType {
+export interface CourseType {
   id: number
   code: string
   name: string
@@ -29,7 +29,10 @@ interface GraduationData {
 interface CoursesContextType {
   courses: CourseType[]
   graduation: GraduationData | undefined
-  deleteCourse: (id: number) => void
+  wasCourseModalOpened: boolean
+  deleteCourse: (id: number) => Promise<void>
+  getCourses: () => Promise<void>
+  onCourseModalOpen: (value: boolean) => void
 }
 
 export const CoursesContext = createContext({} as CoursesContextType)
@@ -43,23 +46,28 @@ export function CoursesContextProvider({
 }: CoursesContextProviderProps) {
   const [courses, setCourses] = useState<CourseType[]>([])
   const [graduation, setGraduation] = useState<GraduationData | undefined>()
+  const [wasCourseModalOpened, setWasCourseModalOpened] =
+    useState<boolean>(false)
+
+  const getCourses = async () => {
+    const response = await api.get('/courses')
+    setCourses(response.data)
+  }
 
   useEffect(() => {
-    const getCourses = async () => {
-      const response = await api.get('/courses')
-      setCourses(response.data)
-    }
-
     getCourses()
   }, [])
 
-  useEffect(() => {
-    const getGraduation = async () => {
-      const response = await api.get('/graduation')
-      setGraduation(response.data)
-      console.log(response.data)
-    }
+  const getGraduation = async () => {
+    const response = await api.get('/graduation')
+    setGraduation(response.data)
+  }
 
+  const onCourseModalOpen = (value: boolean) => {
+    setWasCourseModalOpened(value)
+  }
+
+  useEffect(() => {
     getGraduation()
   }, [])
 
@@ -102,7 +110,16 @@ export function CoursesContextProvider({
   }
 
   return (
-    <CoursesContext.Provider value={{ courses, graduation, deleteCourse }}>
+    <CoursesContext.Provider
+      value={{
+        courses,
+        graduation,
+        wasCourseModalOpened,
+        deleteCourse,
+        getCourses,
+        onCourseModalOpen,
+      }}
+    >
       {children}
     </CoursesContext.Provider>
   )

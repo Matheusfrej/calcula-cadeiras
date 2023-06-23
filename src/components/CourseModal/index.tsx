@@ -1,26 +1,103 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import * as S from './styles'
 import { GraduationCap, LockSimple, X } from 'phosphor-react'
+import * as z from 'zod'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { api } from '../../lib/axios'
+import { CourseType, useCourses } from '../../contexts/CoursesContext'
+
+const courseFormSchema = z.object({
+  code: z.string(),
+  name: z.string(),
+  professor: z.string(),
+  // type: z.enum(['Obrigatória', 'Eletiva']),
+  workload: z.number(),
+})
+
+type CourseFormInputs = z.infer<typeof courseFormSchema>
 
 interface CourseModalProps {
   purpose: 'add' | 'edit'
+  courseId?: number
 }
 
-export function CourseModal({ purpose }: CourseModalProps) {
+export function CourseModal({ purpose, courseId }: CourseModalProps) {
+  const { wasCourseModalOpened } = useCourses()
+
+  const { register, handleSubmit, setValue } = useForm<CourseFormInputs>({
+    resolver: zodResolver(courseFormSchema),
+  })
+
+  const [course, setCourse] = useState<CourseType | undefined>()
+
+  const handleCourseSubmit = (data: CourseFormInputs) => {
+    console.log(data)
+  }
+
+  const getCourseById = async (id: number) => {
+    if (purpose === 'edit') {
+      const currentCourse = await api.get(`/courses/${id}`)
+      if (course !== undefined) {
+        setValue('code', course.code)
+        setValue('name', course.name)
+        setValue('professor', course.professor)
+        setValue('workload', course.workload)
+      } else {
+        setValue('code', currentCourse.data.code)
+        setValue('name', currentCourse.data.name)
+        setValue('professor', currentCourse.data.professor)
+        setValue('workload', currentCourse.data.workload)
+      }
+      setCourse(currentCourse.data)
+    }
+  }
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (courseId !== undefined) {
+      getCourseById(courseId)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wasCourseModalOpened])
+
   return (
     <Dialog.Portal>
       <S.Overlay />
       <S.Content>
-        {purpose === 'add' && <Dialog.Title>Nova cadeira</Dialog.Title>}
-        {purpose === 'edit' && <Dialog.Title>Editar cadeira</Dialog.Title>}
+        <Dialog.Title>
+          {purpose === 'add' ? 'Nova' : 'Editar'} Cadeira
+        </Dialog.Title>
+
         <S.CloseButton>
           <X size={24} />
         </S.CloseButton>
-        <form>
-          <input type="text" placeholder="Código da cadeira" required />
-          <input type="text" placeholder="Nome da cadeira" required />
-          <input type="text" placeholder="Professor" required />
-          <input type="number" placeholder="Carga Horária" required />
+        <form onSubmit={handleSubmit(handleCourseSubmit)}>
+          <input
+            type="text"
+            placeholder="Código da cadeira"
+            required
+            {...register('code')}
+          />
+          <input
+            type="text"
+            placeholder="Nome da cadeira"
+            required
+            {...register('name')}
+          />
+          <input
+            type="text"
+            placeholder="Professor"
+            required
+            {...register('professor')}
+          />
+          <input
+            type="number"
+            placeholder="Carga Horária"
+            required
+            {...register('workload', { valueAsNumber: true })}
+          />
 
           <S.CourseType>
             <S.CourseTypeButton value="mandatory">
@@ -33,8 +110,9 @@ export function CourseModal({ purpose }: CourseModalProps) {
             </S.CourseTypeButton>
           </S.CourseType>
 
-          {purpose === 'add' && <button type="submit">Cadastrar</button>}
-          {purpose === 'edit' && <button type="submit">Concluir</button>}
+          <button type="submit">
+            {purpose === 'add' ? 'Cadastrar' : 'Concluir'}
+          </button>
         </form>
       </S.Content>
     </Dialog.Portal>
