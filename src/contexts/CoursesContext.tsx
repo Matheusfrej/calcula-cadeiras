@@ -28,6 +28,7 @@ interface GraduationData {
 interface CoursesContextType {
   courses: CourseType[]
   graduation: GraduationData | undefined
+  deleteCourse: (id: number) => void
 }
 
 export const CoursesContext = createContext({} as CoursesContextType)
@@ -61,8 +62,15 @@ export function CoursesContextProvider({
     getGraduation()
   }, [])
 
+  const deleteCourse = async (id: number) => {
+    await api.delete(`/courses/${id}`)
+    setCourses((state) => {
+      return state.filter((course) => course.id !== id)
+    })
+  }
+
   return (
-    <CoursesContext.Provider value={{ courses, graduation }}>
+    <CoursesContext.Provider value={{ courses, graduation, deleteCourse }}>
       {children}
     </CoursesContext.Provider>
   )

@@ -7,6 +7,7 @@ import { CourseModal } from '../../../../components/CourseModal'
 import { DeleteCourseModal } from '../../../../components/DeleteCourseModal'
 
 interface CourseCardProps {
+  id: number
   code: string
   name: string
   mandatory: boolean
@@ -15,6 +16,7 @@ interface CourseCardProps {
 }
 
 export function CourseCard({
+  id,
   code,
   name,
   mandatory,
@@ -67,6 +69,7 @@ export function CourseCard({
             </Dialog.Trigger>
             <DeleteCourseModal
               handleDeleteModalOpenChange={handleDeleteModalOpenChange}
+              courseId={id}
             />
           </Dialog.Root>
         </div>

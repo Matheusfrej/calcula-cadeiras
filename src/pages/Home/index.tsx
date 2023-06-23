@@ -19,6 +19,7 @@ export function Home() {
             return (
               <CourseCard
                 key={course.id}
+                id={course.id}
                 code={course.code}
                 name={course.name}
                 mandatory={course.type === 'Obrigatória'}

@@ -1,15 +1,21 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import * as S from './styles'
 import { X } from 'phosphor-react'
+import { useCourses } from '../../contexts/CoursesContext'
 
 interface DeleteCourseModalProps {
   handleDeleteModalOpenChange: (value: boolean) => void
+  courseId: number
 }
 
 export function DeleteCourseModal({
   handleDeleteModalOpenChange,
+  courseId,
 }: DeleteCourseModalProps) {
-  const onHandleDeleteModalOpenChange = () => {
+  const { deleteCourse } = useCourses()
+
+  const onHandleDeleteModalOpenChange = (toDelete: boolean) => {
+    if (toDelete) deleteCourse(courseId)
     handleDeleteModalOpenChange(false)
   }
 
@@ -23,8 +29,12 @@ export function DeleteCourseModal({
         </S.CloseButton>
 
         <S.Buttons>
-          <button onClick={onHandleDeleteModalOpenChange}>Apagar</button>
-          <button onClick={onHandleDeleteModalOpenChange}>Cancelar</button>
+          <button onClick={() => onHandleDeleteModalOpenChange(true)}>
+            Apagar
+          </button>
+          <button onClick={() => onHandleDeleteModalOpenChange(false)}>
+            Cancelar
+          </button>
         </S.Buttons>
       </S.Content>
     </Dialog.Portal>
