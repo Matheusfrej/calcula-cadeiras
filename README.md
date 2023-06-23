@@ -26,3 +26,12 @@ Para instalar e usar o projeto, siga as etapas abaixo:
 
 ![tela4](https://github.com/Matheusfrej/calcula-cadeiras/assets/61998444/4c965929-8efb-47f6-9375-39e19c640db8)
 
+![telapequena1](https://github.com/Matheusfrej/calcula-cadeiras/assets/61998444/cd926963-8f39-42a4-9a2b-ecb45e22aac2)
+
+![telapequena2](https://github.com/Matheusfrej/calcula-cadeiras/assets/61998444/f3ee3b62-b9bd-4c2d-a012-9e68779a5925)
+
+![telapequena3](https://github.com/Matheusfrej/calcula-cadeiras/assets/61998444/2de2a4e9-11b0-4971-97e0-c4824a49e0b6)
+
+![telapequena4](https://github.com/Matheusfrej/calcula-cadeiras/assets/61998444/95bb8514-0238-4d86-a813-6672330d9c94)
+
+![telapequena5](https://github.com/Matheusfrej/calcula-cadeiras/assets/61998444/12169867-2ef7-4530-b7cd-6d2354a670f3)
