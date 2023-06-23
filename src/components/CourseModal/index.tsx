@@ -24,7 +24,7 @@ interface CourseModalProps {
 }
 
 export function CourseModal({ purpose, courseId }: CourseModalProps) {
-  const { wasCourseModalOpened } = useCourses()
+  const { wasCourseModalOpened, showToast } = useCourses()
 
   const { control, register, handleSubmit, setValue } =
     useForm<CourseFormInputs>({
@@ -33,8 +33,36 @@ export function CourseModal({ purpose, courseId }: CourseModalProps) {
 
   const [course, setCourse] = useState<CourseType | undefined>()
 
-  const handleCourseSubmit = (data: CourseFormInputs) => {
-    console.log(data)
+  const handleCourseSubmit = async (data: CourseFormInputs) => {
+    const { code, name, professor, type, workload } = data
+
+    if (purpose === 'add') {
+      try {
+        await api.post('/courses', {
+          code,
+          name,
+          professor,
+          type,
+          workload,
+        })
+        showToast('Cadeira adicionada com sucesso!', true)
+      } catch (error) {
+        showToast('Houve um erro ao adicionar uma cadeira', false)
+      }
+    } else if (purpose === 'edit') {
+      try {
+        await api.put(`/courses/${courseId}`, {
+          code,
+          name,
+          professor,
+          type,
+          workload,
+        })
+        showToast('Cadeira editada com sucesso!', true)
+      } catch (error) {
+        showToast('Houve um erro ao editar a cadeira', false)
+      }
+    }
   }
 
   const getCourseById = async (id: number) => {

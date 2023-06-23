@@ -9,12 +9,12 @@
       "workload": 120
     },
     {
-      "id": 7,
       "code": "IF718",
       "name": "Analise e Projetos de Sistemas",
       "professor": "Augusto Sampaio",
       "type": "Eletiva",
-      "workload": 75
+      "workload": 90,
+      "id": 7
     }
   ],
   "graduation": {

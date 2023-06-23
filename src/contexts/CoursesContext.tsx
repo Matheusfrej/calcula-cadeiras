@@ -33,6 +33,7 @@ interface CoursesContextType {
   deleteCourse: (id: number) => Promise<void>
   getCourses: (query: string) => Promise<void>
   onCourseModalOpen: (value: boolean) => void
+  showToast: (message: string, didSuccess: boolean) => void
 }
 
 export const CoursesContext = createContext({} as CoursesContextType)
@@ -122,6 +123,7 @@ export function CoursesContextProvider({
         deleteCourse,
         getCourses,
         onCourseModalOpen,
+        showToast,
       }}
     >
       {children}

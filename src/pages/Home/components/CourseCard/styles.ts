@@ -6,7 +6,9 @@ export const CourseCardContainer = styled.div`
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1.5rem;
+  min-height: 10rem;
 
   h3 {
     font-size: 1rem;
