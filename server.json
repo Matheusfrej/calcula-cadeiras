@@ -1,7 +1,7 @@
 {
   "courses": [
     {
-      "id": 4,
+      "id": 6,
       "code": "IF669",
       "name": "Introdução à Programação",
       "professor": "Filipe Calegario",
@@ -9,12 +9,12 @@
       "workload": 120
     },
     {
-      "id": 6,
-      "code": "IF669",
-      "name": "Introdução à Programação",
-      "professor": "Filipe Calegario",
-      "type": "Obrigatória",
-      "workload": 120
+      "id": 7,
+      "code": "IF718",
+      "name": "Analise e Projetos de Sistemas",
+      "professor": "Augusto Sampaio",
+      "type": "Eletiva",
+      "workload": 75
     }
   ],
   "graduation": {

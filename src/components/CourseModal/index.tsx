@@ -3,7 +3,7 @@ import * as S from './styles'
 import { GraduationCap, LockSimple, X } from 'phosphor-react'
 import * as z from 'zod'
 import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { api } from '../../lib/axios'
 import { CourseType, useCourses } from '../../contexts/CoursesContext'
@@ -12,7 +12,7 @@ const courseFormSchema = z.object({
   code: z.string(),
   name: z.string(),
   professor: z.string(),
-  // type: z.enum(['Obrigatória', 'Eletiva']),
+  type: z.enum(['Obrigatória', 'Eletiva']),
   workload: z.number(),
 })
 
@@ -26,9 +26,10 @@ interface CourseModalProps {
 export function CourseModal({ purpose, courseId }: CourseModalProps) {
   const { wasCourseModalOpened } = useCourses()
 
-  const { register, handleSubmit, setValue } = useForm<CourseFormInputs>({
-    resolver: zodResolver(courseFormSchema),
-  })
+  const { control, register, handleSubmit, setValue } =
+    useForm<CourseFormInputs>({
+      resolver: zodResolver(courseFormSchema),
+    })
 
   const [course, setCourse] = useState<CourseType | undefined>()
 
@@ -44,11 +45,13 @@ export function CourseModal({ purpose, courseId }: CourseModalProps) {
         setValue('name', course.name)
         setValue('professor', course.professor)
         setValue('workload', course.workload)
+        setValue('type', course.type)
       } else {
         setValue('code', currentCourse.data.code)
         setValue('name', currentCourse.data.name)
         setValue('professor', currentCourse.data.professor)
         setValue('workload', currentCourse.data.workload)
+        setValue('type', currentCourse.data.type)
       }
       setCourse(currentCourse.data)
     }
@@ -99,16 +102,27 @@ export function CourseModal({ purpose, courseId }: CourseModalProps) {
             {...register('workload', { valueAsNumber: true })}
           />
 
-          <S.CourseType>
-            <S.CourseTypeButton value="mandatory">
-              Obrigatória
-              <LockSimple size={20} weight="bold" />
-            </S.CourseTypeButton>
-            <S.CourseTypeButton value="elective">
-              Eletiva
-              <GraduationCap size={20} weight="bold" />
-            </S.CourseTypeButton>
-          </S.CourseType>
+          <Controller
+            control={control}
+            name="type"
+            render={({ field }) => {
+              return (
+                <S.CourseType
+                  onValueChange={field.onChange}
+                  value={field.value}
+                >
+                  <S.CourseTypeButton value="Obrigatória">
+                    Obrigatória
+                    <LockSimple size={20} weight="bold" />
+                  </S.CourseTypeButton>
+                  <S.CourseTypeButton value="Eletiva">
+                    Eletiva
+                    <GraduationCap size={20} weight="bold" />
+                  </S.CourseTypeButton>
+                </S.CourseType>
+              )
+            }}
+          />
 
           <button type="submit">
             {purpose === 'add' ? 'Cadastrar' : 'Concluir'}
