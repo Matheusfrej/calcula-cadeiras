@@ -1,0 +1,15 @@
+{
+  "title": "Calcula Cadeiras",
+  "upload_type": "software",
+  "description": "Um site para calcular quantas horas você falta para se formar no curso de Ciência da Computação do CIn.",
+  "creators": [
+    {
+      "name": "Frej, Matheus",
+      "affiliation": "Universidade Federal de Pernambuco",
+      "orcid": "0009-0003-0592-0818"
+    }
+  ],
+  "license": "MIT",
+  "keywords": ["software", "github", "zenodo"],
+  "version": "v1.0.0"
+}
