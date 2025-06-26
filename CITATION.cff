@@ -1,11 +1,11 @@
-cff-version: 1.0.0
+cff-version: 1.0.2
 message: "If you use this software, please cite it as below."
 authors:
   - family-names: Frej
     given-names: Matheus
     orcid: https://orcid.org/0009-0003-0592-0818
 title: "Calcula-cadeiras"
-version: 1.0.1
+version: 1.0.2
 identifiers:
   - type: doi
     value: 10.5072/zenodo.278061
